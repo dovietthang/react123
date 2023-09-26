@@ -1,6 +1,7 @@
-import React from "react";
 import HomeComtent from "./HomeComtent";
 import HomeWrapper from "./HomeWrapper";
+import FooterFullWrapper from "./FooterFullWrapper";
+import React, { useEffect } from "react";
 
 // Import tệp CSS
 import "../../Assets/Style/wp-includes/css/dist/block-library/style.min3781.css"; // Import tệp CSS
@@ -14,26 +15,30 @@ import "../../Assets/Style/wp-content/cache/min/1/wp-content/themes/southteam/cs
 import "../../Assets/Style/custuer.style.css"; // Import tệp CSS
 // import "../../Assets/Style/"; // Import tệp CSS
 
-
 function Home() {
+  useEffect(() => {
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js",
+      });
+
+      const f = d.getElementsByTagName(s)[0];
+      const j = d.createElement(s);
+      const dl = l !== "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = `https://www.googletagmanager.com/gtm5445.html?id=${i}${dl}`;
+
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-WXPHX67");
+  }, []); // Empty dependency array means this effect runs once after the component mounts
+
   return (
-    <div id="page" class="site">
+    <div id="content" class="site-content">
       <HomeComtent />
       <HomeWrapper />
-      <div class="panel-overlay"></div>
-      <div class="zalo-fix"><a class="click--zalo" href="https://zalo.me/0367559981" target="_blank"></a></div>
-      <div class="phone-fixed"> <a href="tel:0938049434" class="hotline-mobi" rel="nofollow">
-        <div class="website-alo-phone">
-          <div class="quydinh-tip quydinh-tip-2">0938.049.434</div>
-          <div class="animated infinite zoomIn website-alo-ph-circle"></div>
-          <div class="animated infinite pulse website-alo-ph-circle-fill"></div>
-          <div class="animated infinite tada website-alo-ph-img-circle">
-            <i class="fa fa-phone" aria-hidden="true"></i>
-          </div>
-        </div>
-      </a>
-      </div>
-      <a href="#page" class="gotop"><i class="fa fa-chevron-up"></i></a>
+
     </div>
   );
 }
