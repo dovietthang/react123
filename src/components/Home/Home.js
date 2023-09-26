@@ -13,7 +13,6 @@ import "../../Assets/Style/wp-content/cache/min/1/wp-content/themes/southteam/cs
 import "../../Assets/Style/wp-content/cache/min/1/wp-content/themes/southteam/css/bootstrap-d1881920b8a3112ed740aa678f3b8d6c.css"; // Import tệp CSS
 import "../../Assets/Style/wp-content/cache/min/1/wp-content/themes/southteam/css/aos-4df847f79c24d7a8dd5ed2983dbd3458.css"; // Import tệp CSS
 import "../../Assets/Style/custuer.style.css"; // Import tệp CSS
-// import "../../Assets/Style/"; // Import tệp CSS
 
 function Home() {
   useEffect(() => {
@@ -38,7 +37,6 @@ function Home() {
     <div id="content" class="site-content">
       <HomeComtent />
       <HomeWrapper />
-
     </div>
   );
 }

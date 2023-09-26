@@ -401,3 +401,47 @@ body .is-layout-flex>* {
     background: url(./wp-content/plugins/wp-rocket/inc/front/img/youtube.png) no-repeat;
     cursor: pointer
 }
+
+.lazyloading-config {
+    outline: none !important;
+    visibility: visible !important;
+    resize: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    background: none !important;
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+    -ms-filter: progid: DXImageTransform.Microsoft.Alpha(Opacity 1) !important;
+    -mz-opacity: 1 !important;
+    -khtml-opacity: 1 !important;
+    top: auto !important;
+    right: 10px !important;
+    bottom: 0px !important;
+    left: auto !important;
+    position: fixed !important;
+    border: 0 !important;
+    min-height: 44px !important;
+    min-width: 264px !important;
+    max-height: 44px !important;
+    max-width: 264px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    -moz-transition-property: none !important;
+    -webkit-transition-property: none !important;
+    -o-transition-property: none !important;
+    transition-property: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    width: 264px !important;
+    height: 44px !important;
+    display: block !important;
+    z-index: 1000001 !important;
+    background-color: transparent !important;
+    cursor: none !important;
+    float: none !important;
+    border-radius: unset !important;
+    pointer-events: auto !important;
+    clip: auto !important;
+    color-scheme: light !important;
+}
