@@ -1,5 +1,6 @@
 import HomeComtent from "./HomeComtent";
 import HomeWrapper from "./HomeWrapper";
+import GoogleTagManager from "./GoogleTagManager";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
@@ -48,6 +49,7 @@ function Home() {
 
   return (
     <div id="content" class="site-content">
+      <GoogleTagManager/>
       <HomeComtent />
       <HomeWrapper />
       <Helmet>
