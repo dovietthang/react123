@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import CSS của AOS
-import Section1 from "./Section1";
+import Section1 from "./Section1"; // Kiểm tra đường dẫn này
 import Section2 from "./Section2";
 import Section3 from "./Section3";
 import Section4 from "./Section4";

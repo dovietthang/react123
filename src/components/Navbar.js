@@ -1,20 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
-import { ImBlog } from "react-icons/im";
-import {
-  AiFillStar,
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-} from "react-icons/ai";
-
-import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -28,10 +14,74 @@ function NavBar() {
     }
   }
 
-  window.addEventListener("scroll", scrollHandler);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 200) {
+        document.querySelector("header#masthead").classList.add("fixed");
+        document.querySelector(".gotop").style.right = "15px";
+      } else {
+        document.querySelector("header#masthead").classList.remove("fixed");
+        document.querySelector(".gotop").style.right = "-55px";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScrollTo = (targetId) => {
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 50,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleMobileMenuToggle = () => {
+    const primeryMenu = document.querySelector(".primery-menu");
+    const panelOverlay = document.querySelector(".panel-overlay");
+    const mobileMenu = document.querySelector("a.mobile-menu");
+
+    if (primeryMenu) {
+      primeryMenu.classList.toggle("display");
+    }
+
+    if (panelOverlay) {
+      panelOverlay.classList.toggle("display");
+    }
+
+    if (mobileMenu) {
+      mobileMenu.classList.toggle("display");
+    }
+  };
+
+const handleSubMenuToggle = (event) => {
+  console.log(event.currentTarget);
+  const iconElement = event.currentTarget;
+  const targetId = iconElement.getAttribute("data-target");
+  const submenu = document.getElementById(targetId);
+
+  iconElement.classList.toggle("submenu-opened");
+
+  if (submenu) {
+    if (submenu.classList.contains("open")) {
+      submenu.classList.remove("open");
+      submenu.style.display = "none";
+    } else {
+      submenu.classList.add("open");
+      submenu.style.display = "block";
+    }
+  }
+};
+
 
   return (
-    <header id="masthead" class="site-header">
+    <header id="masthead" className={`site-header ${navColour ? "fixed" : ""}`}>
       <div class="middle-header">
         <div class="container">
           <div class="row">
@@ -41,12 +91,7 @@ function NavBar() {
                 <img src="wp-content/themes/southteam/images/logo-white.png" alt="Thiết kế Website chuyên nghiệp">
               </a> */}
                 <Navbar.Brand href="/" className="d-flex">
-                  <img
-                    src={logo}
-                    className="img-fluid"
-                    
-                    alt="brand"
-                  />
+                  <img src={logo} className="img-fluid" alt="brand" />
                 </Navbar.Brand>
               </div>
             </div>
@@ -72,6 +117,11 @@ function NavBar() {
                       id="menu-item-48"
                       class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-48"
                     >
+                      <i
+                        class="fa fa-plus d-lg-none"
+                        data-target="menu-item-48-submenu"
+                        onClick={handleSubMenuToggle}
+                      ></i>
                       <a href="#">Dịch vụ</a>
                       <ul class="sub-menu">
                         <li
@@ -128,6 +178,11 @@ function NavBar() {
                       id="menu-item-15"
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-15"
                     >
+                      <i
+                        class="fa fa-plus d-lg-none"
+                        data-target="menu-item-49-submenu"
+                        onClick={handleSubMenuToggle}
+                      ></i>
                       <a href="giao-dien-website-mau/index.html">
                         Giao diện website mẫu
                       </a>
@@ -203,19 +258,19 @@ function NavBar() {
                       <a href="lien-he/index.html">Liên hệ</a>
                     </li>
                   </ul>
-                </div>{" "}
+                </div>
                 <a
                   class="btn-regis"
                   data-toggle="modal"
                   data-target="#regis-all"
                 >
-                  {" "}
                   Đăng ký ngay
                 </a>
-              </div>{" "}
+              </div>
               <a
                 class="mobile-menu hidden-lg-up pull-right"
                 href="javascript:;"
+                onClick={handleMobileMenuToggle}
               >
                 <span></span>
                 <span></span>
