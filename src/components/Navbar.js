@@ -123,7 +123,7 @@ const handleSubMenuToggle = (event) => {
                         onClick={handleSubMenuToggle}
                       ></i>
                       <a href="#">Dịch vụ</a>
-                      <ul class="sub-menu">
+                      <ul class="sub-menu" id="menu-item-48-submenu">
                         <li
                           id="menu-item-71"
                           class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"
@@ -186,7 +186,7 @@ const handleSubMenuToggle = (event) => {
                       <a href="giao-dien-website-mau/index.html">
                         Giao diện website mẫu
                       </a>
-                      <ul class="sub-menu">
+                      <ul class="sub-menu" id="menu-item-49-submenu">
                         <li
                           id="menu-item-72"
                           class="menu-item menu-item-type-taxonomy menu-item-object-danh-muc menu-item-72"
